@@ -1,0 +1,21 @@
+{
+	"last": "/supreme-magus/chapter-2348-lnherited-will-part-4/",
+	"last_write_to": "supreme-magus 2300-2400",
+	"base_url": "https://readnovelfull.me",
+	"chapters_done": 2348,
+	"next_page_finder": {
+		"id1": "next_chap"
+	},
+	"contents_container": {
+		"id1": "chr-content"
+	},
+	"title_finder": {
+		"class1": "chr-title",
+		"element": "h3"
+	},
+	"text_finder": {
+		"find_all": true,
+		"element1": "p"
+	},
+	"skip": true
+}

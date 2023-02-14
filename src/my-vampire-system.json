@@ -1,0 +1,22 @@
+{
+  "last": "/my-vampire-system/chapter-518-through-the-portal/",
+  "last_write_to": "my-vampire-system 500-600",
+  "base_url": "https://readnovelfull.me",
+  "chapters_done": 518,
+  "next_page_finder": {
+    "id1": "next_chap"
+  },
+  "contents_container": {
+    "id1": "chr-content"
+  },
+  "title_finder": {
+    "class1": "chr-title",
+    "element": "h3",
+    "class2": "chr-text"
+  },
+  "text_finder": {
+    "find_all": true,
+    "element1": "p"
+  },
+  "skip": true
+}
