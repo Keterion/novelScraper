@@ -61,7 +61,7 @@ def get_from_possibles(possibles, soup):
 def get_text(page_url, settings):
     soup = BeautifulSoup(requests.get(page_url).content, "html.parser")
     chapter_contents = get_from_possibles(settings["contents_container"], soup)
-    chapter_title = get_from_possibles(settings["title_finder"], chapter_contents).text
+    chapter_title = get_from_possibles(settings.get("title_finder"), chapter_contents).text
     if chapter_title is None:
         print("Couldn't find a chapter title, using 'CHAPTER NAME' as replacement")
         chapter_title = "CHAPTER NAME"
@@ -100,20 +100,31 @@ if conf.get("last_write_to") is not None:
     file_name_chapter = conf.get("last_write_to")
 else:
     file_name_chapter = novel
+
+do_skip = conf.get("skip")
 while 69:
     if chapters % 100 == 0:
         file_name_chapter = f"{file_name} {chapters}-{chapters+100}"
         conf["last_write_to"] = file_name_chapter
         os.chdir("..")
+        os.chdir("..")
         save_novel_data(novel, conf)
-    data = get_text((base_url + next_paragraph), conf)
-    if conf.get("skip"):
+        os.chdir(novel_path)
+    try:
+        data = get_text((base_url + next_paragraph), conf)
+    except AttributeError as e:
+        os.chdir("..")
+        os.chdir("..")
+        save_novel_data(novel, conf)
+        print(e.__traceback__)
+        exit(-1)
+    if do_skip:
         print("skipping...")
         if data.get("next_page") is not None:
             next_paragraph = data.get("next_page")
             print(next_paragraph)
             data = get_text((base_url + next_paragraph), conf)
-            conf["skip"] = False
+            do_skip = False
         else:
             print("No new chapters were added.")
             exit(0)
@@ -129,6 +140,7 @@ while 69:
         next_paragraph = data.get("next_page")
     else:
         conf["skip"] = True
+        os.chdir("..")
         os.chdir("..")
         save_novel_data(novel, conf)
         exit(0)
