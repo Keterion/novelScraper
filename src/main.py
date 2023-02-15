@@ -60,8 +60,7 @@ def get_from_possibles(possibles, soup):
 
 def get_text(page_url, settings):
     soup = BeautifulSoup(requests.get(page_url).content, "html.parser")
-    chapter_contents = get_from_possibles(settings["contents_container"], soup)
-    chapter_title = get_from_possibles(settings.get("title_finder"), chapter_contents).text
+    chapter_title = get_from_possibles(settings.get("title_finder"), soup).text
     if chapter_title is None:
         print("Couldn't find a chapter title, using 'CHAPTER NAME' as replacement")
         chapter_title = "CHAPTER NAME"
@@ -116,7 +115,7 @@ while 69:
         os.chdir("..")
         os.chdir("..")
         save_novel_data(novel, conf)
-        print(e.__traceback__)
+        print(e.with_traceback(None))
         exit(-1)
     if do_skip:
         print("skipping...")
@@ -131,10 +130,12 @@ while 69:
 
     print("\033c", end="")
     print(f"Writing '{data.get('title')}'...")
+    conf["skip"] = False
     with open((file_name_chapter + ".md"), "a", encoding="utf8", errors="ignore") as f:
         f.write("\n### " + data.get('title') + "\n")
         for paragraph in data.get("text"):
             f.write(paragraph.text.strip() + "\n\n")
+    conf["skip"] = True
     if data.get("next_page") is not None:
         conf["last"] = next_paragraph
         next_paragraph = data.get("next_page")
@@ -147,6 +148,3 @@ while 69:
     chapters += 1
     conf["chapters_done"] = chapters
     sleep(.4)
-
-# ayo you gotta somehow filter the chr-text span that is the title in
-# https://readnovelfull.me/my-vampire-system/chapter-519-a-new-familys-task/. cya also put it on github

@@ -1,0 +1,20 @@
+{
+  "last": "/world-domination-system/chapter-1166-the-endor-the-beginning-2.html",
+  "last_write_to": "world-domination-system 1100-1200",
+  "base_url": "https://readnovelfull.com",
+  "chapters_done": 1168,
+  "next_page_finder": {
+    "id1": "next_chap"
+  },
+  "contents_container": {
+    "id1": "chr-content"
+  },
+  "title_finder": {
+    "class1": "chr-text"
+  },
+  "text_finder": {
+    "find_all": true,
+    "element1": "p"
+  },
+  "skip": true
+}
