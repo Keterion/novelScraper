@@ -64,9 +64,6 @@ After that, our .json file will look like this:
   "next_page_finder": {
     "id1": "next_chap"
   },
-  "contents_container": {
-    "id1": "chr-content"
-  },
   "title_finder": {
     "class1": "chr-text"
   },
