@@ -56,7 +56,8 @@ The last thing in our json file is **"skip"**, which you just have to set to fal
 used to download new chapters and not download the last one again.
 
 After that, our .json file will look like this:
-<br>```{
+```json
+{
   "last": "/world-domination-system/chapter-c-1-power-levels-and-abbreviations/",
   "last_write_to": null,
   "base_url": "https://readnovelfull.me",
@@ -72,7 +73,8 @@ After that, our .json file will look like this:
     "element1": "p"
   },
   "skip": true
-}```
+}
+```
 
 It is quite possible that the html documents change over the time and due to this,
 you can add multiple key-value pairs for classes, id's and elements to get what you need
