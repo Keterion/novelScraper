@@ -39,6 +39,27 @@ for multiple variants with just one more line in the .json file
 ### Example
 For example, [this novel on readnovelfull.com](https://readnovelfull.me/world-domination-system/chapter-c-1-power-levels-and-abbreviations/).
 
+#### The .json file will look something like this:
+```json
+{
+  "last": "/world-domination-system/chapter-c-1-power-levels-and-abbreviations/",
+  "last_write_to": null,
+  "base_url": "https://readnovelfull.me",
+  "chapters_done": 0,
+  "next_page_finder": {
+    "id1": "next_chap"
+  },
+  "title_finder": {
+    "class1": "chr-text"
+  },
+  "text_finder": {
+    "find_all": true,
+    "element1": "p"
+  },
+  "skip": true
+}
+```
+
 #### "last"
 The **"last"** chapter will get the first of all the chapters.<br>
 In this case it is important that you don't add the "https://readnovelfull.me", because that is
@@ -79,25 +100,3 @@ The last thing we need is the elements that contain the text.
 #### "skip"
 The last thing in our json file is **"skip"**, which you just have to set to false, as it is
 used to download new chapters and not download the last one again.
-
-#### Result
-After that, our .json file will look like this:
-```json
-{
-  "last": "/world-domination-system/chapter-c-1-power-levels-and-abbreviations/",
-  "last_write_to": null,
-  "base_url": "https://readnovelfull.me",
-  "chapters_done": 0,
-  "next_page_finder": {
-    "id1": "next_chap"
-  },
-  "title_finder": {
-    "class1": "chr-text"
-  },
-  "text_finder": {
-    "find_all": true,
-    "element1": "p"
-  },
-  "skip": true
-}
-```
