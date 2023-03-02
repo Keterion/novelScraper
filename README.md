@@ -78,20 +78,21 @@ links to the next chapter are relative (i.e. "/world-domination-system/chapter-1
 You have to set this to `0`, as it checks whether the chapters are divisible
 by 100.
 
-#### "title_finder"
-The element containing the title is: 
-<br>`<span class="chr-text">Chapter c-1 Power Levels And Abbreviations</span>`
+#### "next_page_finder"
+The element containing the link that directs to the next chapter is:
+<br>`<a class="btn btn-success" href="/world-domination-system/chapter-1-daneel/" title="Chapter 1 Daneel" id="next_chap">...</a>`
 <br> To now filter that in the program, you have to grab one of these:
 - class name
 - id name
 - element name
 
 Using either the id or class is recommended over the element name though, as the whole DOM will be searched.
-
-#### "next_page_finder"
-The element containing the link that directs to the next chapter is:
-<br>`<a class="btn btn-success" href="/world-domination-system/chapter-1-daneel/" title="Chapter 1 Daneel" id="next_chap">...</a>`
 <br>Because there are multiple elements with the class "btn" or "btn-success", we will use the id, which is "next_chap".
+
+#### "title_finder"
+The element containing the title is: 
+<br>`<span class="chr-text">Chapter c-1 Power Levels And Abbreviations</span>`
+<br>It has a class name, "chr-text", so we will use that for the filter.
 
 #### "text_finder"
 The last thing we need is the elements that contain the text.
