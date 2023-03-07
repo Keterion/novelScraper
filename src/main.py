@@ -141,6 +141,7 @@ while 69:
         next_paragraph = data.get("next_page")
     else:
         conf["skip"] = True
+        conf["last"] = next_paragraph
         os.chdir("..")
         os.chdir("..")
         save_novel_data(novel, conf)
