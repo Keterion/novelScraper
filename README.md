@@ -39,49 +39,7 @@ for multiple variants with just one more line in the .json file
 ### Example
 For example, [this novel on readnovelfull.com](https://readnovelfull.me/world-domination-system/chapter-c-1-power-levels-and-abbreviations/).
 
-#### "last"
-The **"last"** chapter will get the first of all the chapters.<br>
-In this case it is important that you don't add the "https://readnovelfull.me", because that is
-the base url to which the chapters get added.
-
-#### "last_write_to"
-The **"last_write_to"** can get set to `null`, because we didn't write to any file yet and
-the program will create new ones automatically.
-
-#### "base_url"
-The previously mentioned **"base_url"** in our case is "https://readnovelfull.me", as all of the
-links to the next chapter are relative (i.e. "/world-domination-system/chapter-1-daneel/")
-
-#### "chapters_done"
-**"chapters_done"** is used to split the chapters to files containing 100 chapters each.
-You have to set this to `0`, as it checks whether the chapters are divisible
-by 100.
-
-#### "title_finder"
-The element containing the title is: 
-<br>`<span class="chr-text">Chapter c-1 Power Levels And Abbreviations</span>`
-<br> To now filter that in the program, you have to grab one of these:
-- class name
-- id name
-- element name
-
-Using either the id or class is recommended over the element name though, as the whole DOM will be searched.
-
-#### "next_page_finder"
-The element containing the link that directs to the next chapter is:
-<br>`<a class="btn btn-success" href="/world-domination-system/chapter-1-daneel/" title="Chapter 1 Daneel" id="next_chap">...</a>`
-<br>Because there are multiple elements with the class "btn" or "btn-success", we will use the id, which is "next_chap".
-
-#### "text_finder"
-The last thing we need is the elements that contain the text.
-<br>These are a lot of `<p>`'s, so we'll grab those and add a key with the "find_all" key set to true.
-
-#### "skip"
-The last thing in our json file is **"skip"**, which you just have to set to false, as it is
-used to download new chapters and not download the last one again.
-
-#### Result
-After that, our .json file will look like this:
+#### The .json file will look something like this:
 ```json
 {
   "last": "/world-domination-system/chapter-c-1-power-levels-and-abbreviations/",
@@ -101,3 +59,45 @@ After that, our .json file will look like this:
   "skip": true
 }
 ```
+
+#### "last"
+The **"last"** chapter will get the first of all the chapters.<br>
+In this case it is important that you don't add the "https://readnovelfull.me", because that is
+the base url to which the chapters get added.
+
+#### "last_write_to"
+The **"last_write_to"** can get set to `null`, because we didn't write to any file yet and
+the program will create new ones automatically.
+
+#### "base_url"
+The previously mentioned **"base_url"** in our case is "https://readnovelfull.me", as all of the
+links to the next chapter are relative (i.e. "/world-domination-system/chapter-1-daneel/")
+
+#### "chapters_done"
+**"chapters_done"** is used to split the chapters to files containing 100 chapters each.
+You have to set this to `0`, as it checks whether the chapters are divisible
+by 100.
+
+#### "next_page_finder"
+The element containing the link that directs to the next chapter is:
+<br>`<a class="btn btn-success" href="/world-domination-system/chapter-1-daneel/" title="Chapter 1 Daneel" id="next_chap">...</a>`
+<br> To now filter that in the program, you have to grab one of these:
+- class name
+- id name
+- element name
+
+Using either the id or class is recommended over the element name though, as the whole DOM will be searched.
+<br>Because there are multiple elements with the class "btn" or "btn-success", we will use the id, which is "next_chap".
+
+#### "title_finder"
+The element containing the title is: 
+<br>`<span class="chr-text">Chapter c-1 Power Levels And Abbreviations</span>`
+<br>It has a class name, "chr-text", so we will use that for the filter.
+
+#### "text_finder"
+The last thing we need is the elements that contain the text.
+<br>These are a lot of `<p>`'s, so we'll grab those and add a key with the "find_all" key set to true.
+
+#### "skip"
+The last thing in our json file is **"skip"**, which you just have to set to false, as it is
+used to download new chapters and not download the last one again.
