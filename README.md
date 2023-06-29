@@ -61,9 +61,9 @@ For example, [this novel on readnovelfull.com](https://readnovelfull.me/world-do
 ```
 
 #### "last"
-The **"last"** chapter will get the first of all the chapters.<br>
-In this case it is important that you don't add the "https://readnovelfull.me", because that is
-the base url to which the chapters get added.
+The **"last"** chapter will allow the scraper to start off from where it left. It's important to note that I programmed this under the impression that all novel websites use relative links. <br>
+Because of that, the last chapter has to be a relative link, i.e. "/world-domination-system/chapter-1-daneel/". The rest of the url will be created with the base_url parameter.
+You have to have a "/" at the beginning because without it the program will fail
 
 #### "last_write_to"
 The **"last_write_to"** can get set to `null`, because we didn't write to any file yet and
